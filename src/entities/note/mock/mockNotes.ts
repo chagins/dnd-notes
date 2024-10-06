@@ -1,4 +1,4 @@
-import { NoteData } from "../types";
+import { NoteData } from "../lib";
 
 export const mockNotes: NoteData[] = [
   {
@@ -12,7 +12,7 @@ export const mockNotes: NoteData[] = [
       colorBody: "#E5F7FD",
       colorText: "#18181A",
     }),
-    position: JSON.stringify({ x: 400, y: 20 }),
+    position: JSON.stringify({ x: 10, y: 20 }),
   },
   {
     $id: 2,
@@ -25,7 +25,7 @@ export const mockNotes: NoteData[] = [
       colorBody: "#E5FEE5",
       colorText: "#18181A",
     }),
-    position: JSON.stringify({ x: 350, y: 80 }),
+    position: JSON.stringify({ x: 350, y: 500 }),
   },
   {
     $id: 3,
@@ -38,7 +38,7 @@ export const mockNotes: NoteData[] = [
       colorBody: "#FEE5FD",
       colorText: "#18181A",
     }),
-    position: JSON.stringify({ x: 500, y: 40 }),
+    position: JSON.stringify({ x: 500, y: 200 }),
   },
   {
     $id: 4,
@@ -51,7 +51,7 @@ export const mockNotes: NoteData[] = [
       colorBody: "#FEE5C0",
       colorText: "#18181A",
     }),
-    position: JSON.stringify({ x: 600, y: 100 }),
+    position: JSON.stringify({ x: 50, y: 200 }),
   },
   {
     $id: 5,
