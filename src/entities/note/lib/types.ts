@@ -1,16 +1,16 @@
-export type Colors = {
+export interface Colors  {
   id: string;
   colorHeader: string;
   colorBody: string;
   colorText: string;
 };
 
-export type Position = {
+export interface Position  {
   x: number;
   y: number;
 };
 
-export type NoteId = {
+export interface NoteId {
   $id: number;
 };
 
