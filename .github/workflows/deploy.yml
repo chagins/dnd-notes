@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build:
 
+    runs-on: ubuntu-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -20,22 +20,38 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: install deps
         run: pnpm i --frozen-lockfile
-      
+
       - name: build project
         run: pnpm run build
-      
+
       - name: setup gh pages
         uses: actions/configure-pages@v4
 
       - name: upload data
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          preview: true
